@@ -9,10 +9,11 @@ public class CyclesThird {
         int sum1 = 0;
         int sum2 = 0;
         for (int ticket = 1; ticket < 999999; ticket++) {
-            for (; i != 0; i /= 1000) {
-                sum1 += (i % 1000);
-                sum2 += i;
-            }
+            i = ticket;
+            i /= 1000;
+            sum1 += (i % 1000);
+            sum2 += i;
+
             if (sum2 == sum1){
             System.out.println(ticket);
             }
