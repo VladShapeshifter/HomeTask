@@ -42,6 +42,11 @@ public class CyclesFourth {
 
     public static void main(String[] args) {
         secCount(0);
+        int symmetricCounter = 0;
+        int sum1;
+        int sum2;
+        for (;)
+        if ()
     }
 }
 
