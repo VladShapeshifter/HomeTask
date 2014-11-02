@@ -4,8 +4,12 @@ package com.hometask.task03;
  * Created by Vladislav on 02.11.2014.
  */
 public class CyclesFourth {
+
+    static int second = 0;
+    static int minute = 0;
+    static int hour = 0;
     static void secCount(int sc){
-        int second = sc;
+        second = sc;
         for (int i = 0; i < 59; i++) {
 //            System.out.println(second);
             second++;
@@ -16,7 +20,7 @@ public class CyclesFourth {
         }
     }
     static void minCount(int mc){//minute count
-        int minute = 0;
+
         mc += mc;
         if (mc < 60) {
             minute++;
@@ -28,7 +32,7 @@ public class CyclesFourth {
 //        System.out.println(minute);
     }
     static void hourCount(int hc){//hour count
-        int hour = 0;
+
         hc += hc;
         if (hc < 24) {
             hour++;
@@ -43,10 +47,19 @@ public class CyclesFourth {
     public static void main(String[] args) {
         secCount(0);
         int symmetricCounter = 0;
-        int sum1;
-        int sum2;
-        for (;)
-        if ()
+        int sumh = 0;
+        int summ = 0;
+
+        for (;hour!=0; hour/=10){
+            sumh+=hour%10;
+        }
+        for (;minute!=0; minute/=10){
+            summ+=minute%10;
+        }
+        if (sumh == summ){
+            symmetricCounter++;
+        }
+        System.out.println("There are " + symmetricCounter + " symmetric combinations.");
     }
 }
 
