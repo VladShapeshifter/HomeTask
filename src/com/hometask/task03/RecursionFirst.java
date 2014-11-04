@@ -6,15 +6,13 @@ import java.util.Scanner;
  * Created by Vladislav on 03.11.2014.
  */
 public class RecursionFirst {
+        static int rec(int nn) {
+        return 1 < nn ? nn + rec(nn - 1) : 1;
+    }
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n = input.nextInt();
-        int i = 1;
-        int res = 0;
-        while (i <= n) {
-            res += i;
-            i++;
-        }
-        System.out.println(res);
+        System.out.println(rec(n));
     }
 }
