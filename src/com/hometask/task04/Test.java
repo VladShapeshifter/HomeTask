@@ -1,5 +1,7 @@
 package com.hometask.task04;
 
+import java.util.Arrays;
+
 /**
  * Created by bvl on 11/5/2014.
  */
@@ -9,21 +11,21 @@ public class Test {
         person.setName("Marco Polo");
         person.setAge(25);
         person.setGender("M");
-        person.toString();
+//        person.toString();
         Student student = new Student();
         student.setName("Eric Peterson");
         student.setAge(15);
         student.setGender("M");
         student.setIdNumber("MOP165422");
         student.setGpa(4.1);
-        student.toString();
+//        student.toString();
         Teacher teacher = new Teacher();
         teacher.setName("Kattelyn Frisk");
         teacher.setAge(28);
         teacher.setGender("F");
         teacher.setSubject("Physics");
         teacher.setSalary(2000.0);
-        teacher.toString();
+//        teacher.toString();
         CollegeStudent collegeStudent = new CollegeStudent();
         collegeStudent.setName("Samanta Nord");
         collegeStudent.setAge(19);
@@ -32,7 +34,7 @@ public class Test {
         collegeStudent.setGpa(4.9);
         collegeStudent.setYear(3);
         collegeStudent.setMajor("Psychology");
-        collegeStudent.toString();
+//        collegeStudent.toString();
 
         Person[] personArray = new Person[4];
         personArray[0] = person;
