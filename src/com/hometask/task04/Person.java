@@ -26,4 +26,8 @@ public class Person {
         return gender;
     }
 
+    @Override
+    public String toString() {
+        return this.name + ", age: " + this.age + ", gender: " + this.gender;
+    }
 }
