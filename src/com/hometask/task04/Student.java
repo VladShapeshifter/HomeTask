@@ -18,4 +18,8 @@ public class Student extends Person {
     public double getGpa (){
         return gpa;
     }
+    @Override
+    public String toString() {
+        return super.toString() + ", student id: " + this.idNumber + ", gpa: " + this.gpa;
+    }
 }
