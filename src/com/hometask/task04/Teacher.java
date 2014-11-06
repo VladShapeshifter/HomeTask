@@ -28,6 +28,6 @@ public class Teacher extends Person {
 
     @Override
     public String toString() {
-        return super.toString();
+        return super.toString() + ", subject: " + this.subject + ", salary: " + this.salary;
     }
 }
