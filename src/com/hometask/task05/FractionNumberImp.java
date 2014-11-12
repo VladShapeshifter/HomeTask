@@ -31,7 +31,7 @@ abstract class FractionNumberImp implements com.sourceit.hometask.basic.Fraction
     }
 
     public java.lang.String toString(){
-        return "Dividend: " + getDividend() + "Devisor: " + getDivisor();
+        return getDividend() + "/" + getDivisor();
     }
 
 
