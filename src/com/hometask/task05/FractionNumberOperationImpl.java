@@ -47,10 +47,17 @@ public class FractionNumberOperationImpl implements FractionNumberOperation {
 //        s.split("/")[0]
         if (s.contains("/")){
             String[] sArr = s.split("/");
-            fnTemp.setDividend(Integer.parseInt(sArr[0]));
-            System.out.println(fnTemp.getDividend());
-            fnTemp.setDivisor(Integer.parseInt(sArr[1]));
-            fnTemp.getDivisor();
+            int sArr0 = Integer.parseInt(sArr[0]);
+            int sArr1 = Integer.parseInt(sArr[1]);
+            if (sArr1 > 0) {
+                fnTemp.setDividend(sArr0);
+//            System.out.println(fnTemp.getDividend());
+                fnTemp.setDivisor(sArr1);
+//            System.out.println(fnTemp.getDivisor());
+            } else {
+                fnTemp.setDivisor(1);
+//                throw new ArithmeticException("Please don't input \"0\".");
+            }
         } else{
             fnTemp.setDivisor(FractionNumber.DEFAULT_DIVISOR_VALUE);
         }
