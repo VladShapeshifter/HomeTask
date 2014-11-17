@@ -14,23 +14,36 @@ public class Test {
         FractionNumberOperationImpl fractionNumberWork = new FractionNumberOperationImpl();
         FractionNumberOperationImpl fractionNumber1 = new FractionNumberOperationImpl();
         FractionNumberOperationImpl fractionNumber2 = new FractionNumberOperationImpl();
+        FractionNumber A;
+        FractionNumber B;
         FractionNumber C;
+        FractionNumber D;
+
+        A = fractionNumberWork.add(fractionNumber1.parseFractionNumber("1/2"),
+                fractionNumber2.parseFractionNumber("1/4"));
+        B = fractionNumberWork.sub(fractionNumber1.parseFractionNumber("1/2"),
+                fractionNumber2.parseFractionNumber("1/4"));
+        C = fractionNumberWork.mul(fractionNumber1.parseFractionNumber("1/2"),
+                fractionNumber2.parseFractionNumber("1/4"));
+        D = fractionNumberWork.div(fractionNumber1.parseFractionNumber("1/2"),
+                fractionNumber2.parseFractionNumber("1/4"));
+        System.out.println(A.doubleValue());
+        System.out.println(B.doubleValue());
+        System.out.println(C.doubleValue());
+        System.out.println(D.doubleValue());
+
 //        C = fractionNumberWork.add(fractionNumber1.parseFractionNumber("1/6"), fractionNumber2.parseFractionNumber("2/4"));
 //        System.out.println("Sum = " + C.doubleValue());
         double[] arr = new double[10];
         for (int i = 0; i < 10; i++){
-
             int nDividend1  = (int)(Math.random()*10);
             int nDivisor1  = (int)(Math.random()*10);
             int nDividend2  = (int)(Math.random()*10);
             int nDivisor2  = (int)(Math.random()*10);
+            A = fractionNumberWork.add(fractionNumber1.parseFractionNumber(nDividend1+"/"+nDivisor1),
+                    fractionNumber2.parseFractionNumber(nDividend2+"/"+nDivisor2));
 
-            /*FractionNumberOperationImpl fractionNumberWork = new FractionNumberOperationImpl();
-            FractionNumberOperationImpl fractionNumber1 = new FractionNumberOperationImpl();
-            FractionNumberOperationImpl fractionNumber2 = new FractionNumberOperationImpl();
-            FractionNumber C;*/
-            C = fractionNumberWork.add(fractionNumber1.parseFractionNumber(nDividend1+"/"+nDivisor1), fractionNumber2.parseFractionNumber(nDividend2+"/"+nDivisor2));
-            arr[i] = C.doubleValue();
+            arr[i] = A.doubleValue();
 //            System.out.println(C);
 //            System.out.println(arr[i]);
         }
