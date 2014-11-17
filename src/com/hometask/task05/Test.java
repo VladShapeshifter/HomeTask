@@ -10,7 +10,6 @@ import java.util.Arrays;
  * Created by bvl on 11/12/2014.
  */
 public class Test {
-
     public static void main(String[] args) {
         FractionNumberOperationImpl fractionNumberWork = new FractionNumberOperationImpl();
         FractionNumberOperationImpl fractionNumber1 = new FractionNumberOperationImpl();
