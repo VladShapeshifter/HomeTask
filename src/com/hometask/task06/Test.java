@@ -11,8 +11,8 @@ public class Test {
     public static void main(String[] args) {
         StringUtilsImpl obj = new StringUtilsImpl();
 
-        System.out.println(obj.div("7", "4"));
-        System.out.println(Arrays.toString(obj.findWord("go gogo go", "go")));
+//        System.out.println(obj.div("7", "4"));
+//        System.out.println(Arrays.toString(obj.findWord("go gogo go", "go")));
         try {
             System.out.println(Arrays.toString(obj.findNumbers("12.5 asd")));
         } catch (NumberFormatException nfe) {
@@ -21,7 +21,7 @@ public class Test {
             System.out.println("Not double value was found in the text.");
         }
         try {
-            System.out.println(obj.div("7", "4"));
+            System.out.println(obj.div("7", "0"));
         } catch (NullPointerException npe) {
             System.out.println("Number1 or number2 are equal null.");
         } catch (NumberFormatException nfe) {
@@ -30,7 +30,7 @@ public class Test {
             System.out.println("Number2 is equal 0.");
         }
         try {
-            System.out.println(Arrays.toString(obj.findWord("go gogo go", "go")));
+            System.out.println(Arrays.toString(obj.findWord("go gogo 0", "go")));
         } catch (NullPointerException npe) {
             System.out.println("Text or word are equal null, or there is no occurrence of finding word.");
         }
