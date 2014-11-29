@@ -35,8 +35,10 @@ public class Test {
         System.out.println("Intersection: " + cui.intersection(arr1, arr2));
         System.out.println("Union without duplicates: " + cui.unionWithoutDuplicates(arr1, arr2));
         System.out.println("Intersection without duplicates: " + cui.intersectionWithoutDuplicates(arr1, arr2));
-        System.out.println(cui.difference(arr1, arr2));
+        System.out.println("Difference: " + cui.difference(arr1, arr2));
 
+        System.out.println("--------------------------------------------------------");
+        System.out.println("--------------------------------------------------------");
 
     }
 }
