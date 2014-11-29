@@ -28,7 +28,6 @@ public class CollectionUtilsImpl implements CollectionUtils {
         for (Integer temp : var2){
             intersectionColl2.add(temp);
         }
-//        intersectionColl1.toArray();
         for (int i = 0; i < intersectionColl1.size(); i++){
             for (int j = 0; j < intersectionColl2.size(); j++){
             if (intersectionColl1.get(i) == intersectionColl2.get(j)){
@@ -72,7 +71,6 @@ public class CollectionUtilsImpl implements CollectionUtils {
         ArrayList<Integer> intersectionColl2 = new ArrayList<Integer>();
         ArrayList<Integer> resultOfInters = new ArrayList<Integer>();
         ArrayList<Integer> resultOfUnion = new ArrayList<Integer>();
-        ArrayList<Integer> result = new ArrayList<Integer>();
         //intersection
         for (Integer temp : var1){
             intersectionColl1.add(temp);
@@ -90,32 +88,24 @@ public class CollectionUtilsImpl implements CollectionUtils {
         //union
         resultOfUnion.addAll(var1);
         resultOfUnion.addAll(var2);
-        result = resultOfUnion;
+        //simple array with fixed size;
         Integer[] array = resultOfUnion.toArray(new Integer[resultOfUnion.size()]);
-//
-//        for (int i : resultOfUnion) {
-//            for (int ii = 0; ii < array.length; ii++){
-//                array[ii] = i;
-//            }
-//        }
         //(union - intersection)
         for (int i = 0; i < resultOfUnion.size(); i++){
             for (int j = 0; j < resultOfInters.size(); j++){
                 if (resultOfUnion.get(i) == resultOfInters.get(j)){
-//                    result.remove(resultOfInters.get(i));
                     array[i] = null;
                 }
             }
         }
-        ArrayList<Integer> arrl = new ArrayList<Integer>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
         for (Integer i : array){
-            arrl.add(i);
+            if (i == null){
+                continue;
+            } else {
+                result.add(i);
+            }
         }
-        for (int i = 0; i < arrl.size(); i++) {
-            if (arrl.get(i) == null){
-                arrl.remove(i);
-            } else continue;
-        }
-        return arrl;
+        return result;
     }
 }
