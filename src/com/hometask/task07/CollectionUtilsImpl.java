@@ -98,7 +98,6 @@ public class CollectionUtilsImpl implements CollectionUtils {
 //                array[ii] = i;
 //            }
 //        }
-
         //(union - intersection)
         for (int i = 0; i < resultOfUnion.size(); i++){
             for (int j = 0; j < resultOfInters.size(); j++){
