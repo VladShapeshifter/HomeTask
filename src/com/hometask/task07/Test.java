@@ -3,7 +3,9 @@ package com.hometask.task07;
 import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Vladislav on 22.11.2014.
@@ -40,5 +42,17 @@ public class Test {
         System.out.println("--------------------------------------------------------");
         System.out.println("--------------------------------------------------------");
 
+        SetUtilsImpl sui = new SetUtilsImpl();
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        arrayList.add(5);
+        arrayList.add(3);
+        arrayList.add(1);
+        arrayList.add(2);
+        Set set = new HashSet();
+        set.add("a");
+        set.add("c");
+        set.add("u");
+        set.add("f");
+        System.out.println(sui.orderedSet(arrayList, set));
     }
 }
