@@ -10,18 +10,26 @@ import java.util.*;
 public class SetUtilsImpl implements SetUtils {
 
     public SortedSet<String> orderedSet(Collection<Integer> var1, Set<String> var2) throws NullPointerException {
-        ArrayList<Integer> orderedNumbers = new ArrayList<Integer>();
-        List<String> nonOrderedLetters = new ArrayList<String>();
-        Set<String> set = new LinkedHashSet<String>();
-        if (orderedNumbers.size() == nonOrderedLetters.size()) {
-            Collections.sort(nonOrderedLetters, new Comparator<String>() {
-                @Override
-                public int compare(String o1, String o2) {
-                    return 0;
-                }
-            });
+        ArrayList<String> arrayWords = new ArrayList<String>();
+        ArrayList<Integer> arrayNumbers = new ArrayList<Integer>(var1);
+
+        for (String str : var2) {
+            arrayWords.add(str);
         }
-        return null;
+        final Map<String, Integer> map = new HashMap<String, Integer>();
+        for (int i = 0; i < arrayWords.size(); i++) {
+            map.put(arrayWords.get(i), arrayNumbers.get(i));
+        }
+        SortedSet<String> ss = new TreeSet<String>(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return map.get(o1).compareTo(map.get(o2));
+            }
+        });
+        ss.addAll(var2);
+
+
+        return ss;
     }
 
     public Set<Integer> customOrderSet(Integer... var1) throws NullPointerException {
