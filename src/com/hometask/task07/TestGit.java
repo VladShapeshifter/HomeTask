@@ -7,4 +7,5 @@ public class TestGit {
     int i = 0;
     int u = 1;
     String str = "123";
+    String newstr = "new";
 }
