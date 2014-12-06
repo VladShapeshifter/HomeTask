@@ -6,4 +6,5 @@ package com.hometask.task07;
 public class TestGit {
     int i = 0;
     int u = 1;
+    String str = "123";
 }
