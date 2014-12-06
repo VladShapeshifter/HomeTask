@@ -1,6 +1,8 @@
 package com.hometask.task07;
 
+import com.sourceit.hometask.collections.MultiValueMap;
 import com.sun.org.apache.xpath.internal.SourceTree;
+import com.sun.org.apache.xpath.internal.operations.Mult;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -45,14 +47,28 @@ public class Test {
         SetUtilsImpl sui = new SetUtilsImpl();
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
         arrayList.add(5);
+        arrayList.add(1);
         arrayList.add(3);
         arrayList.add(1);
         arrayList.add(2);
         Set set = new HashSet();
         set.add("a");
         set.add("c");
+        set.add("c");
         set.add("u");
         set.add("f");
         System.out.println(sui.orderedSet(arrayList, set));
+
+        System.out.println("--------------------------------------------------------");
+        System.out.println("--------------------------------------------------------");
+
+        MultiValueMap<String, Integer> mvm = new MultiValueMapImpl<String, Integer>();
+        mvm.put("one", 1);
+        mvm.put("one", 1);
+        mvm.put("two", 2);
+        mvm.put("three", 3);
+        mvm.put("four", 4);
+        mvm.put("five", 5);
+        System.out.println(mvm);
     }
 }
