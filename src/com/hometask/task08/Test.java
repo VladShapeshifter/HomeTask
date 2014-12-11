@@ -13,90 +13,33 @@ public class Test {
         long startTime;
         long elapsedTime;
 
-        System.out.println("Simple copying started");
-        CopyFileStrategyImpl1 copy1 = new CopyFileStrategyImpl1();
+        CopyFileFactoryImpl copier = new CopyFileFactoryImpl();
         try {
+            System.out.println("Simple copying started");
             startTime = System.nanoTime();
-            copy1.copyFile("path/fileInput1Impl1.txt", "path/fileOutput1Impl1.txt");
-            elapsedTime = System.nanoTime() - startTime;
-            System.out.println("Simlpe - Elapsed Time is " + (elapsedTime / 1000000.0) + " msec");
-        } catch (FileCopyFailedException e) {
-            e.printStackTrace();
-        }
-        File sourceFile1 = new File("path/fileInput2Impl1.txt");
-        File outputFile1 = new File("path/fileOutput2Impl1.txt");
-        try {
-            startTime = System.nanoTime();
-            copy1.copyFile(sourceFile1, outputFile1);
+            copier.createSimpleCopyFileStrategy().copyFile("path/newPath/fileInput1Impl1.MOV", "path/newPath/fileOutput1Impl1.MOV");
             elapsedTime = System.nanoTime() - startTime;
             System.out.println("Simple - Elapsed Time is " + (elapsedTime / 1000000.0) + " msec");
-        } catch (FileCopyFailedException e) {
-            e.printStackTrace();
-        }
 
-        System.out.println("Buffered copying started");
-        CopyFileStrategyImpl2 copy2 = new CopyFileStrategyImpl2();
-        try {
+            System.out.println("Buffered copying started");
             startTime = System.nanoTime();
-            copy2.copyFile("path/fileInput1Impl2.txt", "path/fileOutput1Impl2.txt");
+            copier.createBufferedCopyFileStrategy().copyFile("path/newPath/fileInput1Impl2.MOV", "path/newPath/fileOutput1Impl2.MOV");
             elapsedTime = System.nanoTime() - startTime;
             System.out.println("Buffered - Elapsed Time is " + (elapsedTime / 1000000.0) + " msec");
-        } catch (FileCopyFailedException e) {
-            e.printStackTrace();
-        }
-        File sourceFile2 = new File("path/fileInput2Impl2.txt");
-        File outputFile2 = new File("path/fileOutput2Impl2.txt");
-        try {
-            startTime = System.nanoTime();
-            copy2.copyFile(sourceFile2, outputFile2);
-            elapsedTime = System.nanoTime() - startTime;
-            System.out.println("Buffered - Elapsed Time is " + (elapsedTime / 1000000.0) + " msec");
-        } catch (FileCopyFailedException e) {
-            e.printStackTrace();
-        }
 
-        System.out.println("Channels \"nio\" copying started");
-        CopyFileStrategyImpl3 copy3 = new CopyFileStrategyImpl3();
-        try {
+            System.out.println("Channels \"nio\" copying started");
             startTime = System.nanoTime();
-            copy3.copyFile("path/fileInput1Impl3.txt", "path/fileOutput1Impl3.txt");
+            copier.createChannelsCopyFileStrategy().copyFile("path/newPath/fileInput1Impl3.MOV", "path/newPath/fileOutput1Impl3.MOV");
             elapsedTime = System.nanoTime() - startTime;
             System.out.println("Channels - Elapsed Time is " + (elapsedTime / 1000000.0) + " msec");
-        } catch (FileCopyFailedException e) {
-            e.printStackTrace();
-        }
-        File sourceFile3 = new File("path/fileInput2Impl3.txt");
-        File outputFile3 = new File("path/fileOutput2Impl3.txt");
-        try {
-            startTime = System.nanoTime();
-            copy3.copyFile(sourceFile3, outputFile3);
-            elapsedTime = System.nanoTime() - startTime;
-            System.out.println("Channels - Elapsed Time is " + (elapsedTime / 1000000.0) + " msec");
-        } catch (FileCopyFailedException e) {
-            e.printStackTrace();
-        }
 
-        System.out.println("File \"nio\" copying started");
-        CopyFileStrategyImpl4 copy4 = new CopyFileStrategyImpl4();
-        try {
+            System.out.println("File \"nio\" copying started");
             startTime = System.nanoTime();
-            copy4.copyFile("path/fileInput1Impl4.txt", "path/fileOutput1Impl4.txt");
+            copier.createFilesCopyFileStrategy().copyFile("path/newPath/fileInput1Impl4.MOV", "path/newPath/fileOutput1Impl4.MOV");
             elapsedTime = System.nanoTime() - startTime;
             System.out.println("File - Elapsed Time is " + (elapsedTime / 1000000.0) + " msec");
         } catch (FileCopyFailedException e) {
             e.printStackTrace();
         }
-        File sourceFile4 = new File("path/fileInput2Impl4.txt");
-        File outputFile4 = new File("path/fileOutput2Impl4.txt");
-        try {
-            startTime = System.nanoTime();
-            copy4.copyFile(sourceFile4, outputFile4);
-            elapsedTime = System.nanoTime() - startTime;
-            System.out.println("File - Elapsed Time is " + (elapsedTime / 1000000.0) + " msec");
-        } catch (FileCopyFailedException e) {
-            e.printStackTrace();
-        }
-
     }
-
 }
