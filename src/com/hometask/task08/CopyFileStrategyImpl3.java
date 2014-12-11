@@ -16,43 +16,18 @@ import java.nio.channels.FileChannel;
 public class CopyFileStrategyImpl3 implements CopyFileStrategy {
     @Override
     public void copyFile(String s, String s1) throws FileAlreadyPresentsException, FileCopyFailedException {
-        FileChannel out = null;
-        try (FileChannel in = new FileInputStream(s).getChannel()){
-            out = new FileInputStream(s1).getChannel();
+        try (FileChannel in = new FileInputStream(s).getChannel();
+             FileChannel out = new FileInputStream(s1).getChannel()){
             out.transferFrom(in, 0, in.size());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            if (out != null) {
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 
     @Override
     public void copyFile(File file, File file1) throws FileAlreadyPresentsException, FileCopyFailedException {
-        FileChannel out = null;
-        try (FileChannel in = new FileInputStream(file).getChannel()){
-            out = new FileInputStream(file1).getChannel();
-            out.transferFrom(in, 0, in.size());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (out != null) {
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        copyFile(file.getAbsolutePath(), file1.getAbsolutePath());
     }
 }
