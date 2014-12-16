@@ -3,10 +3,7 @@ package com.hometask.task09;
 import com.sourceit.hometask.threads.FindFilesTask;
 import com.sourceit.hometask.threads.TaskExecutionFailedException;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FilenameFilter;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
 
@@ -31,7 +28,13 @@ public class FindFilesTaskImpl implements FindFilesTask {
         if (s.contains("*")) {
             String[] listOfAll1 = file.list();
             for (String printAll : listOfAll1) {
-                System.out.println(printAll);
+//                System.out.println(printAll);
+                try {
+                    PrintStream printStream = new PrintStream(new FileOutputStream(printAll));
+                    setPrintStream(printStream);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         }
         // Find files with one character file name
@@ -40,7 +43,13 @@ public class FindFilesTaskImpl implements FindFilesTask {
             ArrayList arrayListOne = new ArrayList();
             for (String printOne1 : listOfOne1) {
                 if (printOne1.length() == 1) {
-                    arrayListOne.add(printOne1);
+//                    arrayListOne.add(printOne1);
+                    try {
+                        PrintStream printStream = new PrintStream(new FileOutputStream(printOne1));
+                        setPrintStream(printStream);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
             String[] listOfOne2 = new String[arrayListOne.size()];
