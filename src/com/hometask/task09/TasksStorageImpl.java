@@ -18,7 +18,9 @@ public class TasksStorageImpl implements TasksStorage {
 
     @Override
     public Task get() {
-        return taskList.getLast();
+        Task task = taskList.getFirst();
+        taskList.remove(task);
+        return task;
     }
 
     @Override
